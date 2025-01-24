@@ -1,5 +1,7 @@
 package com.test.microservices.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ public class StudentServiceImpl implements StudentService{
 	public Student saveStudent(Student student) {
 		// TODO Auto-generated method stub
 		return studentRepository.save(student);
+	}
+
+	@Override
+	public Optional<Student> getStudentDetailsById(int id) {
+		// TODO Auto-generated method stub
+		return studentRepository.findById(id);
 	}
 
 	

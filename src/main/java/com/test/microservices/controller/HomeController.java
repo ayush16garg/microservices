@@ -1,6 +1,10 @@
 package com.test.microservices.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +22,12 @@ public class HomeController {
 	public Student saveStudentDetails(@RequestBody Student student) {
 		System.out.println("Controller Executed");
 		System.out.println("Student details = "+student.toString());
-		//Student student1 = new Student(1, "Ayush", 29, "Delhi");
 		return studentService.saveStudent(student);
-		
+	}
+	
+	@GetMapping("/studentbyId/{id}")
+	public Optional<Student> getStudentDetailsById(@PathVariable("id") int id) {
+		System.out.println("Student id = "+id);
+		return studentService.getStudentDetailsById(id);
 	}
 }
