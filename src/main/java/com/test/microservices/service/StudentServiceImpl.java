@@ -49,5 +49,11 @@ public class StudentServiceImpl implements StudentService{
 		}
 		return studentRepository.save(studentexist);
 	}
+
+	@Override
+	public void deleteStudentDetails(int id) {
+		// TODO Auto-generated method stub
+		studentRepository.deleteById(id);
+	}
 	
 }
