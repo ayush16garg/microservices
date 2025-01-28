@@ -13,4 +13,6 @@ public interface StudentService {
 
 	List<Student> fetchAllStudent();
 
+	Student updateStudentDetails(Student student);
+
 }
