@@ -1,5 +1,6 @@
 package com.test.microservices.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,10 @@ public class HomeController {
 	public Optional<Student> getStudentDetailsById(@PathVariable("id") int id) {
 		System.out.println("Student id = "+id);
 		return studentService.getStudentDetailsById(id);
+	}
+	
+	@GetMapping("fetchStudentDetails")
+	public List<Student> fetchAllStudent(){
+		return studentService.fetchAllStudent();
 	}
 }

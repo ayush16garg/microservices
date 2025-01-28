@@ -1,5 +1,6 @@
 package com.test.microservices.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class StudentServiceImpl implements StudentService{
 		return studentRepository.findById(id);
 	}
 
+	@Override
+	public List<Student> fetchAllStudent() {
+		// TODO Auto-generated method stub
+		return (List<Student>) studentRepository.findAll();
+	}
 	
 }
