@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import com.test.microservices.repository.StudentRepository;
 @Service
 public class StudentServiceImpl implements StudentService{
 
+	Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
+	
 	@Autowired
 	private StudentRepository studentRepository;
 	
@@ -56,7 +60,7 @@ public class StudentServiceImpl implements StudentService{
 		if (studentRepository.existsById(id)) {
 			studentRepository.deleteById(id);
 		} else {
-			System.out.println("The student id which you are requesting for deletion is not present");
+			logger.info("The student id which you are requesting for deletion is not present");
 		}
 
 	}
