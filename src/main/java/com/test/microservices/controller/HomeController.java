@@ -1,6 +1,7 @@
 package com.test.microservices.controller;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,10 @@ public class HomeController {
 	
 	@DeleteMapping("deleteStudent/{id}")
 	public void deleteStudentDetails(@PathVariable("id") int id) {
-		studentService.deleteStudentDetails(id);
+		if (Objects.nonNull(id)) {
+			studentService.deleteStudentDetails(id);
+		} else {
+			System.out.println("Id should not be null");
+		}
 	}
 }

@@ -53,7 +53,12 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public void deleteStudentDetails(int id) {
 		// TODO Auto-generated method stub
-		studentRepository.deleteById(id);
+		if (studentRepository.existsById(id)) {
+			studentRepository.deleteById(id);
+		} else {
+			System.out.println("The student id which you are requesting for deletion is not present");
+		}
+
 	}
 	
 }
